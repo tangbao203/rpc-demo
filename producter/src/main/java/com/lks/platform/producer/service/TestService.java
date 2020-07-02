@@ -46,11 +46,11 @@ public class TestService implements ITestService {
     }
 
     @Override
-    public List<UserVo> getUserList2(String userId, QueryVo query1) {
+    public List<UserVo<UserVo.Friend>> getUserList2(String userId, QueryVo query1) {
         logger.info("【2】本次收到参数:userId:{},query1:{}", userId,
                 JSON.toJSONString(query1));
 
-        UserVo user=new UserVo();
+        UserVo<UserVo.Friend> user=new UserVo<>();
         user.setAddr("深圳");
         user.setName("张三");
         user.setAddr("18");
@@ -68,7 +68,7 @@ public class TestService implements ITestService {
 
         user.setFriend(list);
 
-        List<UserVo> result=new ArrayList<>();
+        List<UserVo<UserVo.Friend>> result=new ArrayList<>();
         result.add(user);
 
         return result;

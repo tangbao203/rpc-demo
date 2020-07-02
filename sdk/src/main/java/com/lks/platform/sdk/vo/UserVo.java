@@ -5,13 +5,14 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class UserVo {
+public class UserVo<T> {
     private String name;
     private String gender;
     private String agent;
     private String addr;
 
-    private List<Friend> friend;
+
+    private List<T> friend;
 
     @Data
     public static class Friend{

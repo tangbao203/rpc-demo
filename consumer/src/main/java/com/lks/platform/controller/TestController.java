@@ -2,10 +2,13 @@ package com.lks.platform.controller;
 
 import com.lks.platform.sdk.ITestService;
 import com.lks.platform.sdk.vo.QueryVo;
+import com.lks.platform.sdk.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RequestMapping("/")
 @RestController
@@ -36,7 +39,9 @@ public class TestController {
         query1.setAddr("dsf2");
         query1.setName("cdsc2");
 
-        return testService.getUserList2("12",query1);
+        List<UserVo<UserVo.Friend>> result= testService.getUserList2("12",query1);
+
+        return result;
     }
 
 }
